@@ -1,0 +1,162 @@
+@import './plugin';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 15px;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.App {
+    width: 100%;
+    height: 100vh;
+    @include flex-cus(space-around, center, column);
+    position: relative;
+    .morning {
+        @include background__image('../assets/images/morning.png');
+        @media (min-width: 450px) {
+            @include background__image('../assets/images/morning-pc.jpg');
+        }
+    }
+    .night {
+        @include background__image('../assets/images/night.png');
+        @media (min-width: 450px) {
+            @include background__image('../assets/images/night-pc.jpg');
+        }
+    }
+}
+
+.search {
+    width: 350px;
+    height: auto;
+    background: white;
+    @include flex-cus(space-between,center,row);
+    border-radius: 5em;
+    overflow: hidden;
+    padding: 0 1.5em;
+    &__input {
+        flex: 0.9;
+        outline: none;
+        border: none;
+        padding: 1em 0.5em;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__btn {
+        flex: 0.1;
+        outline: none;
+        border: none;
+        opacity: 0.5;
+        cursor: pointer;
+    }
+    @media (min-width: 1024px){
+        position: absolute;
+        top: 3em;
+        right: 3em;
+        width: auto;
+    }
+}
+
+.temperature {
+    width: 100%;
+    height: auto;
+    @include flex-c;
+    color: #fff;
+    padding: 0 2em;
+    .temp__desc {
+        @include flex-c;
+        width: 100%;
+        .temperature__container {
+            width: 100%;
+            @include flex-r;
+        }
+        .city__desc {
+            @include flex-c;
+            .city {
+                p{
+                    font-size: 1.5rem;
+                    text-transform: capitalize;
+                }
+            }
+            .time {
+                padding: 1em 0 2em;
+            }
+        }
+        @media (min-width: 768px) {
+            width: 50%;
+            @include flex-cus(space-around,center, row-reverse);
+            .temperature__container {
+                flex: 1;
+                @include flex-cus(space-around,center,column-reverse);
+                .temperature__display {
+                    padding-right: 1em;
+                }
+            }
+            .city__desc {
+                flex: 1;
+                .time {
+                    padding: 0.5em 0 0;
+                }
+            }
+        }
+    }
+    &__display {
+        @include  flex-c;
+        flex: 1;
+        .temp__value {
+            font-size: 3rem;
+            cursor: pointer;
+        }
+    }
+    .weather__display {
+        @include flex-c;
+        flex: 1;
+    }
+    .temperature__description {
+        width: 100%;
+        @include flex;
+        p{
+            font-size: 1.5rem;
+                margin: 0.2em 0;
+                padding: 0.2em 2em;
+                border-radius: 0.2em;
+                background: rgba(0,0,0,0.2);
+        }
+    }
+}
+
+.info {
+    margin: 2em 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    .box {
+        background: rgba(255,255,255,0.2);
+        border-radius: 8px;
+        padding: 2em 0;
+        @include flex-c;
+        &__data {
+            @include flex;
+            p{
+                letter-spacing: normal;
+                padding: 0 0.5em;
+                font-size: 1.2rem;
+            }
+        }
+        &__name {
+            p{
+                color: rgba(255,255,255,0.7);
+                padding: 1em 0;
+            }
+        }
+    }
+    @media (min-width: 768px){
+        max-width: 50%;
+    }
+}
