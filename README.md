@@ -12,3 +12,14 @@ A simple weather application built with ReactJS that allows users to check the c
 * Search for weather information in various cities.
 * Responsive design for mobile and desktop.
 
+# Steps to execute the react-app
+* Clone this repository
+  <pre>git clone https://github.com/myself-karthick/Weather-App-Frontend.git</pre>
+* Initialize npm modules
+  <pre>npm install</pre>
+* After installing npm modules, start the react app with,
+  <pre>npm start</pre>
+* The app will start to run in localhost, port 3000 in browser.
+* To stop the app press ctrl+c
+</br>
+Thank You :)
