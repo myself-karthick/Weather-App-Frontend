@@ -15,7 +15,7 @@ A simple weather application built with ReactJS that allows users to check the c
 # Steps to execute the react-app
 * Clone this repository
   <pre>git clone https://github.com/myself-karthick/Weather-App-Frontend.git</pre>
-* Initialize npm modules
+* Initialize node modules
   <pre>npm install</pre>
 * After installing npm modules, start the react app with,
   <pre>npm start</pre>
