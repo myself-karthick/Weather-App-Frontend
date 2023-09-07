@@ -5,7 +5,7 @@ import useFetch from "./hook/useFetch";
 import { BounceLoader } from "react-spinners";
 
 const App = () => {
-  const [isDay, setIsDay] = useState(false);
+  const [isDay, setIsDay] = useState(true);
   const [cityName, setCityName] = useState("Chennai");
   const [weatherData, setWeatherData] = useState({});
   const { data, isLoading, error, refetch } = useFetch(cityName);
@@ -17,7 +17,14 @@ const App = () => {
 
   useEffect(() => {
     refetch()
-  },[cityName])
+  }, [cityName])
+
+  useEffect(() => {
+    const hour = date.getHours();
+    const changedDay = hour >= 6 && hour <= 18;
+    if (changedDay !== isDay)
+      setIsDay(!isDay);
+  }, [isDay])
 
   const UpdateCityName = (city) => {
     setCityName(city);
